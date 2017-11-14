@@ -486,6 +486,10 @@ struct Type<nu::Painter> {
         "strokeRect", &nu::Painter::StrokeRect,
         "fillRect", &nu::Painter::FillRect,
         "measureText", &nu::Painter::MeasureText,
+        "drawImage", &nu::Painter::DrawImage,
+        "drawImageFromRect", &nu::Painter::DrawImageFromRect,
+        "drawCanvas", &nu::Painter::DrawCanvas,
+        "drawCanvasFromRect", &nu::Painter::DrawCanvasFromRect,
         "drawText", &nu::Painter::DrawText);
   }
 };
@@ -1065,6 +1069,7 @@ struct Type<nu::View> {
                 "onMouseMove", &nu::View::on_mouse_move,
                 "onMouseEnter", &nu::View::on_mouse_enter,
                 "onMouseLeave", &nu::View::on_mouse_leave,
+                "onMouseWheel", &nu::View::on_mouse_wheel,
                 "onKeyDown", &nu::View::on_key_down,
                 "onKeyUp", &nu::View::on_key_up,
                 "onSizeChanged", &nu::View::on_size_changed,

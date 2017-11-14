@@ -3,7 +3,6 @@
 // LICENSE file.
 
 #include "nativeui/win/view_win.h"
-
 #include "nativeui/events/event.h"
 #include "nativeui/events/win/event_win.h"
 #include "nativeui/gfx/geometry/rect_conversions.h"
@@ -159,6 +158,17 @@ bool ViewImpl::OnMouseClick(NativeEvent event) {
       delegate()->on_mouse_up.Emit(delegate(), client_event))
     return true;
   return false;
+}
+
+
+bool ViewImpl::OnMouseWheel(bool vertical, UINT flags, int delta,
+                            const Point& point) {
+  if (!delegate() || delegate()->on_mouse_wheel.IsEmpty())
+    return false;
+
+  delegate()->on_mouse_wheel.Emit(delegate(), delta);
+
+  return true;
 }
 
 bool ViewImpl::OnKeyEvent(NativeEvent event) {

@@ -135,6 +135,7 @@ class NATIVEUI_EXPORT View : public base::RefCounted<View> {
   Signal<void(View*, const MouseEvent&)> on_mouse_move;
   Signal<void(View*, const MouseEvent&)> on_mouse_enter;
   Signal<void(View*, const MouseEvent&)> on_mouse_leave;
+  Signal<void(View*, const int&)> on_mouse_wheel;
   Signal<bool(View*, const KeyEvent&)> on_key_down;
   Signal<bool(View*, const KeyEvent&)> on_key_up;
   Signal<void(View*)> on_size_changed;

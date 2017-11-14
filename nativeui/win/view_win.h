@@ -77,7 +77,7 @@ class ViewImpl {
   virtual void OnMouseEnter(NativeEvent event);
   virtual void OnMouseLeave(NativeEvent event);
   virtual bool OnMouseWheel(bool vertical, UINT flags, int delta,
-                            const Point& point) { return false; }
+                            const Point& point);
   virtual bool OnMouseClick(NativeEvent event);
   virtual bool OnKeyEvent(NativeEvent event);
 

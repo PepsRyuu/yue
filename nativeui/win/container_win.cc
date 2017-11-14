@@ -3,7 +3,6 @@
 // LICENSE file.
 
 #include "nativeui/win/container_win.h"
-
 #include "base/stl_util.h"
 #include "nativeui/events/win/event_win.h"
 #include "nativeui/gfx/win/painter_win.h"
@@ -85,9 +84,9 @@ void ContainerImpl::OnMouseLeave(NativeEvent event) {
 bool ContainerImpl::OnMouseWheel(bool vertical, UINT flags, int delta,
                                  const Point& point) {
   ViewImpl* child = FindChildFromPoint(point);
-  if (child)
-    return child->OnMouseWheel(vertical, flags, delta, point);
-  return false;
+  if (child && child->OnMouseWheel(vertical, flags, delta, point))
+    return true;
+  return ViewImpl::OnMouseWheel(vertical, flags, delta, point);
 }
 
 bool ContainerImpl::OnMouseClick(NativeEvent event) {
